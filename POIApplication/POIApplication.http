@@ -1,0 +1,6 @@
+@POIApplication_HostAddress = http://localhost:5212
+
+GET {{POIApplication_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
