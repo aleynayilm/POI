@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("POIApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91f7bffc9d35d0490c4e045a9d90d4137f6f8878")]
 [assembly: System.Reflection.AssemblyProductAttribute("POIApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("POIApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

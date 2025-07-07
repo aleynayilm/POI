@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "POIApplication.Controllers.DbController",
+    "ContainingType": "POIApplication.Controllers.DbObjectController",
     "Method": "AddObject",
-    "RelativePath": "Db/AddObject",
+    "RelativePath": "DbObject/AddObject",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -26,9 +26,9 @@
     ]
   },
   {
-    "ContainingType": "POIApplication.Controllers.DbController",
+    "ContainingType": "POIApplication.Controllers.DbObjectController",
     "Method": "DeleteObject",
-    "RelativePath": "Db/DeleteObject/{id}",
+    "RelativePath": "DbObject/DeleteObject/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -52,9 +52,9 @@
     ]
   },
   {
-    "ContainingType": "POIApplication.Controllers.DbController",
+    "ContainingType": "POIApplication.Controllers.DbObjectController",
     "Method": "GetAllObjects",
-    "RelativePath": "Db/GetAllObjects",
+    "RelativePath": "DbObject/GetAllObjects",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -72,9 +72,9 @@
     ]
   },
   {
-    "ContainingType": "POIApplication.Controllers.DbController",
+    "ContainingType": "POIApplication.Controllers.DbObjectController",
     "Method": "GetObjectById",
-    "RelativePath": "Db/GetObjectById/{id}",
+    "RelativePath": "DbObject/GetObjectById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -98,9 +98,9 @@
     ]
   },
   {
-    "ContainingType": "POIApplication.Controllers.DbController",
+    "ContainingType": "POIApplication.Controllers.DbObjectController",
     "Method": "UpdateObject",
-    "RelativePath": "Db/UpdateObject/{id}",
+    "RelativePath": "DbObject/UpdateObject/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -134,237 +134,16 @@
     ]
   },
   {
-    "ContainingType": "POIApplication.Controllers.ObjectController",
-    "Method": "AddObject",
-    "RelativePath": "Object/AddObject",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "wkt",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "POIApplication.Response.Result",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.ObjectController",
-    "Method": "AddRange",
-    "RelativePath": "Object/AddRange",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "mapObjects",
-        "Type": "System.Collections.Generic.List\u00601[[POIApplication.Entities.Object, POIApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "POIApplication.Response.Result",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.ObjectController",
-    "Method": "DeleteObject",
-    "RelativePath": "Object/DeleteObject/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "POIApplication.Response.Result",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.ObjectController",
-    "Method": "GetAll",
-    "RelativePath": "Object/GetAll",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "POIApplication.Response.Result",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.ObjectController",
-    "Method": "GetObjectById",
-    "RelativePath": "Object/GetObjectById/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "POIApplication.Response.Result",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.ObjectController",
-    "Method": "UpdateObject",
-    "RelativePath": "Object/UpdateObject/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "wkt",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "POIApplication.Response.Result",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.PointController",
+    "ContainingType": "POIApplication.Controllers.MapObjectController",
     "Method": "Add",
-    "RelativePath": "Point",
+    "RelativePath": "MapObject/Add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "x",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "y",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "POIApplication.Response.Result",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.PointController",
-    "Method": "GetAll",
-    "RelativePath": "Point",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[POIApplication.Entities.Point, POIApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "POIApplication.Controllers.PointController",
-    "Method": "GetPointById",
-    "RelativePath": "Point/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "dto",
+        "Type": "POIApplication.DTO.MapObjectDtoForCreate",
         "IsRequired": true
       }
     ],
@@ -381,9 +160,35 @@
     ]
   },
   {
-    "ContainingType": "POIApplication.Controllers.PointController",
-    "Method": "DeleteOnePoint",
-    "RelativePath": "Point/{id}",
+    "ContainingType": "POIApplication.Controllers.MapObjectController",
+    "Method": "AddRange",
+    "RelativePath": "MapObject/AddRange/add-range",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "objects",
+        "Type": "System.Collections.Generic.List\u00601[[POIApplication.Entities.MapObject, POIApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "POIApplication.Response.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "POIApplication.Controllers.MapObjectController",
+    "Method": "Delete",
+    "RelativePath": "MapObject/Delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -407,9 +212,55 @@
     ]
   },
   {
-    "ContainingType": "POIApplication.Controllers.PointController",
-    "Method": "UpdateOnePoint",
-    "RelativePath": "Point/{id}",
+    "ContainingType": "POIApplication.Controllers.MapObjectController",
+    "Method": "GetAll",
+    "RelativePath": "MapObject/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "POIApplication.Response.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "POIApplication.Controllers.MapObjectController",
+    "Method": "GetById",
+    "RelativePath": "MapObject/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "POIApplication.Response.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "POIApplication.Controllers.MapObjectController",
+    "Method": "Update",
+    "RelativePath": "MapObject/Update/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -420,19 +271,9 @@
         "IsRequired": true
       },
       {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "x",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "y",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "POIApplication.DTO.MapObjectDtoForUpdate",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

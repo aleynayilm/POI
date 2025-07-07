@@ -37,3 +37,16 @@ C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\obj\Debug\net8.
 C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Npgsql.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\obj\Debug\net8.0\POIApplication.sourcelink.json
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll

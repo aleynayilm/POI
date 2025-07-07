@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using POIApplication.Data;
 using POIApplication.Services;
+using POIApplication.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,10 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-builder.Services.AddScoped<IDbObjectService, DbObjectService>();
+builder.Services.AddScoped<IEfMapObjectService, EfMapObjectService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

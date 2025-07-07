@@ -15,7 +15,7 @@ namespace POIApplication.Services
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-         void IDbObjectService.AddObject(Entities.Object mapObject)
+        void IDbObjectService.AddObject(Entities.Object mapObject)
         {
             ValidateWKT(mapObject.WKT, ()=>_mapObject.Add(mapObject));
             using var connection = new NpgsqlConnection(_connectionString);
