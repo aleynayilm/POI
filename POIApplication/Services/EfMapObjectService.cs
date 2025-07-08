@@ -1,4 +1,5 @@
-﻿using POIApplication.Data;
+﻿using NetTopologySuite.Geometries;
+using POIApplication.Data;
 using POIApplication.DTO;
 using POIApplication.Entities;
 using POIApplication.Response;
@@ -75,7 +76,8 @@ namespace POIApplication.Services
 
         private static void ValidateWKT(string wkt)
         {
-            string pattern = @"^(\d+(\.\d+)?\s\d+(\.\d+)?)(,\s*\d+(\.\d+)?\s\d+(\.\d+)?)*$";
+            string pattern = @"^POLYGON\s*\(\(\s*(-?\d+(\.\d+)?\s+-?\d+(\.\d+)?\s*,\s*)*(-?\d+(\.\d+)?\s+-?\d+(\.\d+)?\s*)\)\)$";
+            ;
             bool validate = Regex.IsMatch(wkt, pattern);
 
             if (!validate)

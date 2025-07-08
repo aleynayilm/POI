@@ -1,4 +1,6 @@
-﻿namespace POIApplication.DTO
+﻿using NetTopologySuite.Geometries;
+
+namespace POIApplication.DTO
 {
     public class MapObjectDtoForCreate
     {

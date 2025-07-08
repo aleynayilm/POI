@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using NetTopologySuite.Geometries;
+using NetTopologySuite.IO;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace POIApplication.Entities
@@ -8,6 +10,12 @@ namespace POIApplication.Entities
     {
         public int Id { get; set; }
         public string WKT { get; set; }
+        [NotMapped]
+        internal Geometry InternalGeometry
+        {
+            get => string.IsNullOrEmpty(WKT) ? null : new WKTReader().Read(WKT);
+            set => WKT = value?.AsText();
+        }
         public string Name { get; set; }
     }
 }

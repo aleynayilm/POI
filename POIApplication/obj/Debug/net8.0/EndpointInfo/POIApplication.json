@@ -285,7 +285,7 @@
         }
       }
     },
-    "/MapObject/Add": {
+    "/MapObject/Add/api/mapobject": {
       "post": {
         "tags": [
           "MapObject"

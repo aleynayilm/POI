@@ -136,7 +136,7 @@
   {
     "ContainingType": "POIApplication.Controllers.MapObjectController",
     "Method": "Add",
-    "RelativePath": "MapObject/Add",
+    "RelativePath": "MapObject/Add/api/mapobject",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

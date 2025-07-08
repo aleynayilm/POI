@@ -45,7 +45,7 @@ namespace POIApplication.Controllers
             return result;
         }
 
-        [HttpPost]
+        [HttpPost("api/mapobject")]
         public async Task<Result> Add(MapObjectDtoForCreate dto)
         {
             var result = new Result();

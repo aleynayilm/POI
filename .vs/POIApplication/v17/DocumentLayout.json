@@ -1,0 +1,163 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\entities\\mapobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\entities\\mapobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\dto\\mapobjectdtoforupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\dto\\mapobjectdtoforupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\controllers\\mapobjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\controllers\\mapobjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\dto\\mapobjectdtoforcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\dto\\mapobjectdtoforcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\services\\efmapobjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\services\\efmapobjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|c:\\users\\aleynayilmaz\\source\\repos\\poiapplication\\poiapplication\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{788F4801-77F9-48A1-8831-4DCEC8E2C44F}|POIApplication\\POIApplication.csproj|solutionrelative:poiapplication\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "POIApplication\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "POIApplication\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T18:56:34.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MapObjectDtoForCreate.cs",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\DTO\\MapObjectDtoForCreate.cs",
+              "RelativeDocumentMoniker": "POIApplication\\DTO\\MapObjectDtoForCreate.cs",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\DTO\\MapObjectDtoForCreate.cs",
+              "RelativeToolTip": "POIApplication\\DTO\\MapObjectDtoForCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T10:51:33.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MapObjectDtoForUpdate.cs",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\DTO\\MapObjectDtoForUpdate.cs",
+              "RelativeDocumentMoniker": "POIApplication\\DTO\\MapObjectDtoForUpdate.cs",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\DTO\\MapObjectDtoForUpdate.cs",
+              "RelativeToolTip": "POIApplication\\DTO\\MapObjectDtoForUpdate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T10:51:27.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MapObject.cs",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Entities\\MapObject.cs",
+              "RelativeDocumentMoniker": "POIApplication\\Entities\\MapObject.cs",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Entities\\MapObject.cs",
+              "RelativeToolTip": "POIApplication\\Entities\\MapObject.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T10:50:15.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Program.cs",
+              "RelativeDocumentMoniker": "POIApplication\\Program.cs",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Program.cs",
+              "RelativeToolTip": "POIApplication\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T10:48:16.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EfMapObjectService.cs",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Services\\EfMapObjectService.cs",
+              "RelativeDocumentMoniker": "POIApplication\\Services\\EfMapObjectService.cs",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Services\\EfMapObjectService.cs",
+              "RelativeToolTip": "POIApplication\\Services\\EfMapObjectService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAswEkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T10:15:54.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "POIApplication\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Properties\\launchSettings.json",
+              "RelativeToolTip": "POIApplication\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-08T08:18:59.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MapObjectController.cs",
+              "DocumentMoniker": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Controllers\\MapObjectController.cs",
+              "RelativeDocumentMoniker": "POIApplication\\Controllers\\MapObjectController.cs",
+              "ToolTip": "C:\\Users\\aleynayilmaz\\source\\repos\\POIApplication\\POIApplication\\Controllers\\MapObjectController.cs",
+              "RelativeToolTip": "POIApplication\\Controllers\\MapObjectController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T07:20:49.43Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

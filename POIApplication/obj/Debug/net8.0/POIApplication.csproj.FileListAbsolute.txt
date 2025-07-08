@@ -50,3 +50,10 @@ C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.
 C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\NetTopologySuite.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\NetTopologySuite.IO.PostGis.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\Npgsql.NetTopologySuite.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\obj\Debug\net8.0\EFCoreNpgsqlNetTopologySuite.cs
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\NetTopologySuite.Features.dll
+C:\Users\aleynayilmaz\source\repos\POIApplication\POIApplication\bin\Debug\net8.0\NetTopologySuite.IO.GeoJSON4STJ.dll
