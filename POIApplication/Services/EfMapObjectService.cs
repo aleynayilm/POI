@@ -1,4 +1,5 @@
 ﻿using NetTopologySuite.Geometries;
+using NetTopologySuite.IO;
 using POIApplication.Data;
 using POIApplication.DTO;
 using POIApplication.Entities;
@@ -19,12 +20,12 @@ namespace POIApplication.Services
 
         public async Task<MapObject> AddObject(MapObjectDtoForCreate objectDto)
         {
+            var validateWkt= ValidateWKT(objectDto.WKT);
             var newObject = new MapObject
             {
-                WKT = objectDto.WKT,
+                WKT = validateWkt,
                 Name = objectDto.Name
             };
-            ValidateWKT(newObject.WKT);
             await _unitOfWork.MapObject.AddObject(newObject);
             await _unitOfWork.CompleteAsync();
             return newObject;
@@ -34,7 +35,7 @@ namespace POIApplication.Services
         {
             foreach (var obj in mapObjects)
             {
-                ValidateWKT(obj.WKT);
+                obj.WKT= ValidateWKT(obj.WKT);
             }
             await _unitOfWork.MapObject.AddRange(mapObjects);
             await _unitOfWork.CompleteAsync();
@@ -67,23 +68,56 @@ namespace POIApplication.Services
             var result = await _unitOfWork.MapObject.GetObjectById(id);
             if (result == null)
                 throw new Exception("Nesne bulunamadı");
-            result.WKT = objectDto.WKT;
+            result.WKT = ValidateWKT(objectDto.WKT);
             result.Name = objectDto.Name;
-            ValidateWKT(result.WKT);
             await _unitOfWork.MapObject.UpdateObjectById(result);
             await _unitOfWork.CompleteAsync();
         }
+private static string ValidateWKT(string wkt)
+{
+    if (string.IsNullOrWhiteSpace(wkt))
+        throw new ArgumentException("WKT değeri boş olamaz");
 
-        private static void ValidateWKT(string wkt)
+    try
+    {
+        if (wkt.ToUpper().StartsWith("POLYGON"))
         {
-            string pattern = @"^POLYGON\s*\(\(\s*(-?\d+(\.\d+)?\s+-?\d+(\.\d+)?\s*,\s*)*(-?\d+(\.\d+)?\s+-?\d+(\.\d+)?\s*)\)\)$";
-            ;
-            bool validate = Regex.IsMatch(wkt, pattern);
-
-            if (!validate)
-            {
-                throw new ArgumentException("Geçerli bir WKT giriniz");
-            }
+            wkt = FixPolygonWkt(wkt);
         }
+        
+        var reader = new WKTReader();
+        var geometry = reader.Read(wkt);
+        
+        return geometry.AsText();
+    }
+    catch (Exception ex)
+    {
+        throw new ArgumentException($"Geçerli bir WKT giriniz. Hata: {ex.Message}");
+    }
+}
+        private static string FixPolygonWkt(string wkt)
+{
+    var polygonMatch = Regex.Match(wkt, @"POLYGON\s*\(\s*\(([^)]+)\)\s*\)", RegexOptions.IgnoreCase);
+    if (!polygonMatch.Success)
+        return wkt;
+    
+    var coordinates = polygonMatch.Groups[1].Value.Trim();
+    var points = coordinates.Split(',');
+    
+    if (points.Length < 3)
+        throw new ArgumentException("Polygon en az 3 nokta içermelidir");
+    
+    
+    var firstPoint = points[0].Trim();
+    var lastPoint = points[points.Length - 1].Trim();
+    
+    
+    if (firstPoint != lastPoint)
+    {
+        coordinates += $", {firstPoint}";
+    }
+    
+    return $"POLYGON (({coordinates}))";
+}
     }
     }
