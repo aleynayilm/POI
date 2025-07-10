@@ -3,27 +3,65 @@ import Map from "ol/Map";
 import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
 import VectorLayer from "ol/layer/Vector";
-import OSM from "ol/source/OSM";
 import VectorSource from "ol/source/Vector";
+import OSM from "ol/source/OSM";
 import Draw from "ol/interaction/Draw";
 import { fromLonLat } from "ol/proj";
 import WKT from "ol/format/WKT";
+import Style from "ol/style/Style";
+import Stroke from "ol/style/Stroke";
+import Fill from "ol/style/Fill";
+import CircleStyle from "ol/style/Circle";
+import Overlay from "ol/Overlay";
 import axios from "axios";
 
-const AccessibleMap = ({ geometryType }) => {
+const AccessibleMap = ({ geometryType, onRefresh, refresh }) => {
+    const isDrawingRef = useRef(false);
     const mapRef = useRef();
+    const popupRef = useRef();
+    const overlayRef = useRef();
     const vectorSourceRef = useRef(new VectorSource());
     const drawRef = useRef(null);
     const mapObjectRef = useRef(null);
 
+    const getFeatureStyle = (feature) => {
+        const geometryType = feature.getGeometry().getType();
+        switch (geometryType) {
+            case "Point":
+                return new Style({
+                    image: new CircleStyle({
+                        radius: 7,
+                        fill: new Fill({ color: "#d81b60" }),
+                        stroke: new Stroke({ color: "white", width: 2 }),
+                    }),
+                });
+            case "Polygon":
+                return new Style({
+                    stroke: new Stroke({ color: "#f48fb1", width: 2 }),
+                    fill: new Fill({ color: "rgba(248, 200, 220, 0.4)" }),
+                });
+            case "LineString":
+                return new Style({
+                    stroke: new Stroke({ color: "#d81b60", width: 3 }),
+                });
+            default:
+                return null;
+        }
+    };
     useEffect(() => {
-        const rasterLayer = new TileLayer({
-            source: new OSM(),
-        });
-
+        const rasterLayer = new TileLayer({ source: new OSM() });
         const vectorLayer = new VectorLayer({
             source: vectorSourceRef.current,
+            style: getFeatureStyle,
         });
+
+        const overlay = new Overlay({
+            element: popupRef.current,
+            positioning: "bottom-center",
+            stopEvent: false,
+            offset: [0, -15],
+        });
+        overlayRef.current = overlay;
 
         const map = new Map({
             target: mapRef.current,
@@ -32,12 +70,51 @@ const AccessibleMap = ({ geometryType }) => {
                 center: fromLonLat([35, 39]),
                 zoom: 6,
             }),
+            overlays: [overlay],
         });
 
         mapObjectRef.current = map;
 
+        map.on("singleclick", function (evt) {
+            if (isDrawingRef.current) return;
+            const feature = map.forEachFeatureAtPixel(evt.pixel, function (feat) {
+                return feat;
+            });
+
+            if (feature) {
+                const name = feature.get("name") || "İsimsiz";
+                const format = new WKT();
+                const wkt = format.writeFeature(feature);
+
+                const content = `<strong>${name}</strong><br/><small>${wkt}</small>`;
+                popupRef.current.innerHTML = content;
+                overlay.setPosition(evt.coordinate);
+                popupRef.current.style.display = "block";
+            } else {
+                popupRef.current.style.display = "none";
+            }
+        });
+
         return () => map.setTarget(null);
     }, []);
+
+    useEffect(() => {
+        const format = new WKT();
+        axios.get("https://localhost:7020/MapObject/GetAll")
+            .then((res) => {
+                const features = res.data.data.map(item => {
+                    const feature = format.readFeature(item.wkt);
+                    feature.set("name", item.name);
+                    return feature;
+                });
+
+                vectorSourceRef.current.clear();
+                vectorSourceRef.current.addFeatures(features);
+            })
+            .catch((err) => {
+                console.error("Geometriler alınamadı", err);
+            });
+    }, [refresh]);
 
     useEffect(() => {
         if (!mapObjectRef.current) return;
@@ -53,35 +130,31 @@ const AccessibleMap = ({ geometryType }) => {
             type: geometryType,
         });
 
+        draw.on("drawstart", () => {
+            isDrawingRef.current = true;
+            if (popupRef.current) {
+                popupRef.current.style.display = "none";
+            }
+        });
+
         draw.on("drawend", (event) => {
+            isDrawingRef.current = false
             const format = new WKT();
             const wkt = format.writeFeature(event.feature);
 
             const name = prompt("Lütfen geometriye bir isim girin:");
             if (!name) return;
 
-            const data = {
-                Name: name,
-                WKT: wkt,
-            };
+            const data = { Name: name, WKT: wkt };
 
-            axios
-                .post(`https://localhost:7020/MapObject/Add`, data)
+            axios.post("https://localhost:7020/MapObject/Add", data)
                 .then(() => {
                     alert("Geometri başarıyla eklendi!");
+                    if (onRefresh) onRefresh();
                 })
                 .catch((err) => {
                     console.error("Ekleme hatası:", err);
-                    if (err.response) {
-                        console.log("Hata yanıtı:", err.response);
-                        alert("Hata: " + (err.response.data?.message || "Sunucudan hata döndü."));
-                    } else if (err.request) {
-                        console.log("İstek gönderildi ama yanıt alınamadı:", err.request);
-                        alert("İstek gönderildi ama sunucudan yanıt alınamadı.");
-                    } else {
-                        console.log("İstek ayarlanırken hata oluştu:", err.message);
-                        alert("İstek hazırlık hatası: " + err.message);
-                    }
+                    alert("Hata oluştu: " + err.message);
                 });
         });
 
@@ -90,10 +163,35 @@ const AccessibleMap = ({ geometryType }) => {
     }, [geometryType]);
 
     return (
-        <div
-            ref={mapRef}
-            style={{ width: "800px", height: "500px", marginTop: "10px" }}
-        />
+        <div style={{ position: "relative" }}>
+            <div
+                ref={mapRef}
+                style={{
+                    width: "100%",
+                    height: "500px",
+                    marginTop: "10px",
+                    border: "1px solid #ccc",
+                }}
+            />
+            <div
+                ref={popupRef}
+                className="ol-popup"
+                style={{
+                    backgroundColor: "white",
+                    padding: "8px",
+                    border: "1px solid black",
+                    borderRadius: "4px",
+                    display: "none",
+                    position: "absolute",
+                    zIndex: 1000,
+                    maxWidth: "300px",
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
+                    fontSize: "14px",
+                }}
+            />
+        </div>
     );
 };
 

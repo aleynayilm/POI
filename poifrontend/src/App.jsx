@@ -2,19 +2,27 @@ import React, { useState } from "react";
 import GeometryDropdown from "./components/GeometryDropdown";
 import AccessibleMap from "./components/AccessibleMap";
 import FeatureList from "./components/FeatureList";
+import GeometryViewer from "./components/GeometryViewer";
 
 function App() {
     const [geometryType, setGeometryType] = useState("");
+    const [refresh, setRefresh] = useState(false);
     return (
-        <div style={{ display: "flex", gap: "30px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "30px", padding: "20px" }}>
             <div>
-                <h1>GEOMETRY EKLE</h1>
                 <GeometryDropdown selected={geometryType} setSelected={setGeometryType} />
-                <AccessibleMap geometryType={geometryType} />
             </div>
-            <div>
-                <FeatureList />
-            </div>
+
+            <AccessibleMap
+                geometryType={geometryType}
+                onRefresh={() => setRefresh((prev) => !prev)}
+                refresh={refresh}
+            />
+
+            <FeatureList
+                refresh={refresh}
+                onRefresh={() => setRefresh((prev) => !prev)}
+            />
         </div>
     );
 }
