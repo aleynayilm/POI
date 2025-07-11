@@ -15,7 +15,7 @@ import CircleStyle from "ol/style/Circle";
 import Overlay from "ol/Overlay";
 import axios from "axios";
 
-const AccessibleMap = ({ geometryType, onRefresh, refresh }) => {
+const AccessibleMap = ({ geometryType, onRefresh, refresh, onResetGeometryType }) => {
     const isDrawingRef = useRef(false);
     const mapRef = useRef();
     const popupRef = useRef();
@@ -82,14 +82,71 @@ const AccessibleMap = ({ geometryType, onRefresh, refresh }) => {
             });
 
             if (feature) {
-                const name = feature.get("name") || "İsimsiz";
+                const name = feature.get("name");
+                const id = feature.get("id");
                 const format = new WKT();
                 const wkt = format.writeFeature(feature);
 
-                const content = `<strong>${name}</strong><br/><small>${wkt}</small>`;
+                const content = `
+                    <strong>${name}</strong><br/>
+                    <small>${wkt}</small><br/><br/>
+                    <button id="update-btn">Güncelle</button>
+                    <button id="delete-btn">Sil</button>
+                `;
+
                 popupRef.current.innerHTML = content;
                 overlay.setPosition(evt.coordinate);
                 popupRef.current.style.display = "block";
+
+                setTimeout(() => {
+                    const updateBtn = document.getElementById("update-btn");
+                    const deleteBtn = document.getElementById("delete-btn");
+
+                    if (updateBtn) {
+                        updateBtn.onclick = () => {
+                            const newName = prompt("Yeni ismi girin:", name);
+                            if (!newName) return;
+
+                            const updatedFeature = {
+                                id,
+                                name: newName,
+                                wkt,
+                            };
+
+                            axios.put(`https://localhost:7020/MapObject/Update/${id}`, {
+                                name: newName,
+                                wkt: wkt
+                            })
+                                .then(() => {
+                                    feature.set("name", newName);
+                                    alert("Güncelleme başarılı.");
+                                    if (onRefresh) onRefresh();
+                                    popupRef.current.style.display = "none";
+                                })
+                                .catch((err) => {
+                                    console.error("Güncelleme hatası:", err);
+                                    alert("Güncelleme hatası: " + err.message);
+                                });
+                        };
+                    }
+
+                    if (deleteBtn) {
+                        deleteBtn.onclick = () => {
+                            const confirmed = window.confirm("Silmek istediğine emin misin?");
+                            if (!confirmed) return;
+
+                            axios.delete(`https://localhost:7020/MapObject/Delete/${id}`)
+                                .then(() => {
+                                    alert("Silme başarılı.");
+                                    if (onRefresh) onRefresh();
+                                    popupRef.current.style.display = "none";
+                                })
+                                .catch((err) => {
+                                    alert("Silme hatası: " + err.message);
+                                });
+                        };
+                    }
+                }, 0);
             } else {
                 popupRef.current.style.display = "none";
             }
@@ -105,6 +162,7 @@ const AccessibleMap = ({ geometryType, onRefresh, refresh }) => {
                 const features = res.data.data.map(item => {
                     const feature = format.readFeature(item.wkt);
                     feature.set("name", item.name);
+                    feature.set("id", item.id);
                     return feature;
                 });
 
@@ -145,12 +203,15 @@ const AccessibleMap = ({ geometryType, onRefresh, refresh }) => {
             const name = prompt("Lütfen geometriye bir isim girin:");
             if (!name) return;
 
+            event.feature.set("name", name);
             const data = { Name: name, WKT: wkt };
 
             axios.post("https://localhost:7020/MapObject/Add", data)
                 .then(() => {
                     alert("Geometri başarıyla eklendi!");
-                    if (onRefresh) onRefresh();
+                    // if (onRefresh) 
+                    onRefresh();
+                    onResetGeometryType();
                 })
                 .catch((err) => {
                     console.error("Ekleme hatası:", err);
@@ -161,6 +222,18 @@ const AccessibleMap = ({ geometryType, onRefresh, refresh }) => {
         mapObjectRef.current.addInteraction(draw);
         drawRef.current = draw;
     }, [geometryType]);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape" && drawRef.current) {
+                drawRef.current.abortDrawing();
+                console.log("Çizim ESC ile iptal edildi.");
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, []);
 
     return (
         <div style={{ position: "relative" }}>

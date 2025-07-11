@@ -5,6 +5,24 @@ const FeatureList = ({ refresh, onRefresh }) => {
     const [features, setFeatures] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+
+    useEffect(() => {
+        setLoading(true);
+        axios
+            .get("https://localhost:7020/MapObject/GetAll")
+            .then((res) => {
+                setFeatures(res.data.data);
+                setLoading(false);
+                setCurrentPage(1);
+            })
+            .catch((err) => {
+                console.error("Veri alınamadı", err);
+                setLoading(false);
+            });
+    }, [refresh]);
+
     useEffect(() => {
         setLoading(true);
         axios
@@ -51,6 +69,11 @@ const FeatureList = ({ refresh, onRefresh }) => {
             });
     };
 
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = features.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(features.length / itemsPerPage);
+
     if (loading) return <p>Yükleniyor...</p>;
 
     return (
@@ -65,7 +88,7 @@ const FeatureList = ({ refresh, onRefresh }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {features.map((feature) => (
+                    {currentItems.map((feature) => (
                         <tr key={feature.id}>
                             <td style={cellStyle}>{feature.id}</td>
                             <td style={cellStyle}>{feature.name}</td>
@@ -80,6 +103,29 @@ const FeatureList = ({ refresh, onRefresh }) => {
                     ))}
                 </tbody>
             </table>
+            <div style={{ marginTop: "10px", display: "flex", gap: "10px", justifyContent: "center" }}>
+                <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+                    &lt; Önceki
+                </button>
+
+                {/* Sayfa numaraları */}
+                {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setCurrentPage(i + 1)}
+                        style={{
+                            fontWeight: currentPage === i + 1 ? "bold" : "normal",
+                            backgroundColor: currentPage === i + 1 ? "#d3d3d3" : "white",
+                        }}
+                    >
+                        {i + 1}
+                    </button>
+                ))}
+
+                <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+                    Sonraki &gt;
+                </button>
+            </div>
         </div>
     );
 };
